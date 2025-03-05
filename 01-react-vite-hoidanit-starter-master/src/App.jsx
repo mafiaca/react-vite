@@ -21,7 +21,7 @@ function App() {
 
   // Function xóa công việc
   const deleteTodo = (id) => {
-    setTodoLists(prev => prev.filter((todoList) => todoList.id !== id));
+    setTodoLists(prev => prev.filter(todoList => todoList.id !== id));
   };
 
   return (
