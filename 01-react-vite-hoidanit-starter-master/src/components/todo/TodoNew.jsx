@@ -1,17 +1,17 @@
 import { useState } from "react"
 
 function TodoNew(props) {
-    const { setTodoLists } = props
+    const { addNewTodo } = props
 
     const [input, setInput] = useState('')
 
     function handleInput(e) {
         setInput(e.target.value)
     }
-    console.log(input)
+
 
     function handleAdd() {
-        setTodoLists(prev => [...prev, { id: prev.length + 1, name: input }])
+        addNewTodo(input)
         setInput('')
     }
 
