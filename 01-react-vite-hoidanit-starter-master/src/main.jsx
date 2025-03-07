@@ -8,22 +8,29 @@ import {
 import LoginPage from './pages/login.jsx';
 import RegisterPage from './pages/registerpage.jsx';
 import UsersPage from './pages/users.jsx';
-import ProductsPage from './pages/products.jsx'
+import BookPage from './pages/book.jsx'
 
 import './style/global.css'
+import TodoApp from './components/todo/todoApp.jsx';
+import ErrorPage from './pages/error.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
+      {
+        index: true,
+        element: <TodoApp />
+      },
       {
         path: "/users",
         element: <UsersPage />
       },
       {
-        path: "/products",
-        element: <ProductsPage />
+        path: "/book",
+        element: <BookPage />
       }
     ]
   },

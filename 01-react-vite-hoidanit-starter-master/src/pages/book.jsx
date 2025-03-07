@@ -1,14 +1,14 @@
 import Header from "../components/layout/header"
 import Footer from "../components/layout/footer"
 
-function ProductsPage() {
+function BookPage() {
     return (
         <>
 
-            <div>Products page</div>
+            <div>Book page</div>
 
         </>
     )
 }
 
-export default ProductsPage
+export default BookPage
