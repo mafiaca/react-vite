@@ -1,12 +1,12 @@
-import Header from "../components/layout/header"
-import Footer from "../components/layout/footer"
-import UserTable from "../components/user/user.table"
+import UserTable from "../components/user/userTable"
+import UserForm from "../components/user/userForm"
 
 function UsersPage() {
     return (
         <>
 
             <div>
+                <UserForm />
                 <UserTable />
             </div>
 

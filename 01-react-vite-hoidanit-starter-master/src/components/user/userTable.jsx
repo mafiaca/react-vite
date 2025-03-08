@@ -5,9 +5,9 @@ import { Space, Table, Tag } from 'antd';
 function UserTable() {
     const columns = [
         {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
+            title: 'fullName',
+            dataIndex: 'fullName',
+            key: 'fullName',
             render: (text) => <a>{text}</a>,
         },
         {
@@ -45,7 +45,7 @@ function UserTable() {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <a>Invite {record.name}</a>
+                    <a>Invite {record.fullName}</a>
                     <a>Delete</a>
                 </Space>
             ),
@@ -54,21 +54,21 @@ function UserTable() {
     const data = [
         {
             key: '1',
-            name: 'John Brown',
+            fullName: 'John Brown',
             age: 32,
             address: 'New York No. 1 Lake Park',
             tags: ['nice', 'developer'],
         },
         {
             key: '2',
-            name: 'Jim Green',
+            fullName: 'Jim Green',
             age: 42,
             address: 'London No. 1 Lake Park',
             tags: ['loser'],
         },
         {
             key: '3',
-            name: 'Joe Black',
+            fullName: 'Joe Black',
             age: 32,
             address: 'Sydney No. 1 Lake Park',
             tags: ['cool', 'teacher'],

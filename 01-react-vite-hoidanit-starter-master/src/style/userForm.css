@@ -1,0 +1,12 @@
+.User-Form div {
+    margin: 20px auto;
+    width: 95%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    /* Căn giữa theo chiều ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+}

@@ -11,7 +11,7 @@ function TodoData(props) {
             {todoLists.map((todoList) => {
                 return (
                     <div key={todoList.id}>
-                        <div>{todoList.name}</div>
+                        <div>{todoList.fullName}</div>
                         <button onClick={() => handleDelete(todoList.id)} style={{ marginTop: 10, marginBottom: 10, fontSize: 17 }}>Delete</button>
                     </div>
                 )

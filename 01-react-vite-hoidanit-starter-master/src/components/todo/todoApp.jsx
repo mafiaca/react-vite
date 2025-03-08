@@ -6,15 +6,15 @@ import { useState } from 'react';
 function TodoApp() {
     // Data fake
     const [todoLists, setTodoLists] = useState([
-        { id: 1, name: 'Learning React' },
-        { id: 2, name: 'Learning Java' }
+        { id: 1, fullName: 'Learning React' },
+        { id: 2, fullName: 'Learning Java' }
     ]);
 
     // Function thêm công việc mới
     const addNewTodo = (input) => {
         setTodoLists([
             ...todoLists,
-            { id: todoLists.length + 1, name: input }
+            { id: todoLists.length + 1, fullName: input }
         ]);
     };
 
