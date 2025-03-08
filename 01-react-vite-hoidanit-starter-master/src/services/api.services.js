@@ -1,7 +1,12 @@
-import axios from "axios"
+import axios from "./axios.customize"
+
+const getUsersAPI = () => {
+    const URL_BACKEND = '/api/v1/user'
+    return axios.get(URL_BACKEND)
+}
 
 const createUserAPI = (fullName, email, password, phone) => {
-    const URL_BACKEND = 'http://localhost:8080/api/v1/user'
+    const URL_BACKEND = '/api/v1/user'
     let data = {
         fullName,
         email,
@@ -15,4 +20,4 @@ const updateUserAPI = () => {
 
 }
 
-export { createUserAPI, updateUserAPI }
+export { createUserAPI, updateUserAPI, getUsersAPI }

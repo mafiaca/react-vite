@@ -2,6 +2,9 @@
 function TodoData(props) {
     const { todoLists, deleteTodo } = props
 
+
+
+
     function handleDelete(id) {
         deleteTodo(id)
     }

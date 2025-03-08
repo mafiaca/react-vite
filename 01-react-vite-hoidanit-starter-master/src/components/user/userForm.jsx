@@ -1,4 +1,4 @@
-import { Input } from 'antd';
+import { Input, notification } from 'antd';
 import { Button } from "antd";
 import { useState } from 'react';
 import { createUserAPI } from '../../services/api.services';
@@ -25,6 +25,17 @@ function UserForm() {
     }
     const handleSubmit = async () => {
         const res = await createUserAPI(fullName, email, password, phone)
+        if (res.data) {
+            notification.success({
+                message: 'Create User',
+                description: 'Tao user thanh cong'
+            })
+        } else {
+            notification.error({
+                message: 'Error Create User',
+                description: JSON.stringify(res.message)
+            })
+        }
     }
 
     return (

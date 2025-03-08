@@ -1,43 +1,41 @@
 import { Space, Table, Tag } from 'antd';
-
+import { getUsersAPI } from "../../services/api.services"
+import { useEffect, useState } from 'react';
 
 
 function UserTable() {
+    const [usersData, setUsersData] = useState([])
+    const handleDelete = () => {
+        alert('Chức năng chưa phát triển')
+    }
+
+    useEffect(() => {
+        const loadUsers = async () => {
+            const res = await getUsersAPI()
+            console.log(res.data)
+            setUsersData(res.data)
+        }
+        loadUsers()
+    }, [])
+
     const columns = [
         {
-            title: 'fullName',
+            title: 'ID',
+            dataIndex: '_id',
+        },
+        {
+            title: 'Full Name',
             dataIndex: 'fullName',
-            key: 'fullName',
-            render: (text) => <a>{text}</a>,
         },
         {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
+            title: 'Email',
+            dataIndex: 'email',
         },
         {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
-        },
-        {
-            title: 'Tags',
-            key: 'tags',
-            dataIndex: 'tags',
-            render: (_, { tags }) => (
-                <>
-                    {tags.map((tag) => {
-                        let color = tag.length > 5 ? 'geekblue' : 'green';
-                        if (tag === 'loser') {
-                            color = 'volcano';
-                        }
-                        return (
-                            <Tag color={color} key={tag}>
-                                {tag.toUpperCase()}
-                            </Tag>
-                        );
-                    })}
-                </>
+            title: 'Role',
+            dataIndex: 'role',
+            render: (role) => (
+                <Tag color="blue">{role}</Tag>
             ),
         },
         {
@@ -45,36 +43,15 @@ function UserTable() {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <a>Invite {record.fullName}</a>
-                    <a>Delete</a>
+                    <a onClick={() => handleDelete(record._id)}>Delete</a>
                 </Space>
             ),
         },
     ];
     const data = [
-        {
-            key: '1',
-            fullName: 'John Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-            tags: ['nice', 'developer'],
-        },
-        {
-            key: '2',
-            fullName: 'Jim Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-            tags: ['loser'],
-        },
-        {
-            key: '3',
-            fullName: 'Joe Black',
-            age: 32,
-            address: 'Sydney No. 1 Lake Park',
-            tags: ['cool', 'teacher'],
-        },
+
     ];
-    return (<Table columns={columns} dataSource={data} />)
+    return (<Table columns={columns} dataSource={usersData} rowKey='_id' />)
 }
 
 export default UserTable
