@@ -1,23 +1,9 @@
 import { Space, Table, Tag } from 'antd';
-import { getUsersAPI } from "../../services/api.services"
-import { useEffect, useState } from 'react';
-
-
-function UserTable() {
-    const [usersData, setUsersData] = useState([])
+function UserTable(props) {
+    const { usersData } = props
     const handleDelete = () => {
         alert('Chức năng chưa phát triển')
     }
-
-    useEffect(() => {
-        const loadUsers = async () => {
-            const res = await getUsersAPI()
-            console.log(res.data)
-            setUsersData(res.data)
-        }
-        loadUsers()
-    }, [])
-
     const columns = [
         {
             title: 'ID',
@@ -48,10 +34,8 @@ function UserTable() {
             ),
         },
     ];
-    const data = [
-
-    ];
     return (<Table columns={columns} dataSource={usersData} rowKey='_id' />)
 }
 
 export default UserTable
+
